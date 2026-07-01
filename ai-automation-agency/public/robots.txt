@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json$
+Disallow: /private
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://ai-automation.agency/sitemap.xml

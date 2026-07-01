@@ -1,0 +1,148 @@
+import { Industry } from '@/types'
+
+export const industries: Industry[] = [
+  {
+    id: '1',
+    name: 'Financial Services',
+    slug: 'financial-services',
+    description:
+      'Streamline compliance, reduce fraud, and enhance customer experience with AI automation in banking and fintech.',
+    shortDescription: 'Banking & fintech automation',
+    icon: 'DollarSign',
+    challenges: [
+      'Regulatory compliance burden',
+      'Fraud detection at scale',
+      'Slow loan processing',
+      'Customer onboarding delays',
+    ],
+    solutions: [
+      'Automated compliance monitoring',
+      'Real-time fraud detection',
+      'Instant KYC verification',
+      'Paperless workflows',
+    ],
+    image: '/industries/finance.jpg',
+    color: '#3B82F6',
+    caseStudyCount: 12,
+  },
+  {
+    id: '2',
+    name: 'Healthcare',
+    slug: 'healthcare',
+    description:
+      'Improve patient outcomes and operational efficiency with AI-powered healthcare automation and diagnostics.',
+    shortDescription: 'Healthcare transformation',
+    icon: 'Heart',
+    challenges: [
+      'Administrative burden',
+      'Billing errors',
+      'Patient data management',
+      'Staffing shortages',
+    ],
+    solutions: [
+      'Automated billing cycles',
+      'Patient appointment scheduling',
+      'Medical records automation',
+      'Diagnostic assistance',
+    ],
+    image: '/industries/healthcare.jpg',
+    color: '#EF4444',
+    caseStudyCount: 9,
+  },
+  {
+    id: '3',
+    name: 'E-Commerce',
+    slug: 'ecommerce',
+    description:
+      'Boost sales and streamline operations with AI-powered personalization, inventory, and customer support.',
+    shortDescription: 'Retail & e-commerce optimization',
+    icon: 'ShoppingCart',
+    challenges: [
+      'High cart abandonment',
+      'Inventory management',
+      'Customer service volume',
+      'Return processing',
+    ],
+    solutions: [
+      'Personalization engine',
+      'Inventory optimization',
+      'Automated support chatbots',
+      'Return automation',
+    ],
+    image: '/industries/ecommerce.jpg',
+    color: '#10B981',
+    caseStudyCount: 15,
+  },
+  {
+    id: '4',
+    name: 'Manufacturing',
+    slug: 'manufacturing',
+    description:
+      'Optimize production, reduce downtime, and improve quality with AI-powered industrial automation.',
+    shortDescription: 'Industrial automation',
+    icon: 'Factory',
+    challenges: [
+      'Equipment downtime',
+      'Quality control delays',
+      'Supply chain visibility',
+      'Predictive maintenance',
+    ],
+    solutions: [
+      'Predictive maintenance AI',
+      'Quality inspection automation',
+      'Supply chain optimization',
+      'Production forecasting',
+    ],
+    image: '/industries/manufacturing.jpg',
+    color: '#F59E0B',
+    caseStudyCount: 8,
+  },
+  {
+    id: '5',
+    name: 'Insurance',
+    slug: 'insurance',
+    description:
+      'Accelerate claims processing, improve fraud detection, and enhance customer experience in insurance.',
+    shortDescription: 'Insurance operations automation',
+    icon: 'Shield',
+    challenges: [
+      'Claims processing delays',
+      'Fraud losses',
+      'Customer onboarding',
+      'Underwriting complexity',
+    ],
+    solutions: [
+      'Automated claims assessment',
+      'Fraud detection systems',
+      'Digital onboarding',
+      'Risk scoring automation',
+    ],
+    image: '/industries/insurance.jpg',
+    color: '#8B5CF6',
+    caseStudyCount: 10,
+  },
+  {
+    id: '6',
+    name: 'Legal & Compliance',
+    slug: 'legal-compliance',
+    description:
+      'Accelerate legal research, automate compliance, and streamline document review with AI solutions.',
+    shortDescription: 'Legal tech automation',
+    icon: 'Scale',
+    challenges: [
+      'Document review time',
+      'Compliance monitoring',
+      'Legal research hours',
+      'Contract management',
+    ],
+    solutions: [
+      'Automated document review',
+      'Contract analysis',
+      'Compliance automation',
+      'Legal research AI',
+    ],
+    image: '/industries/legal.jpg',
+    color: '#EC4899',
+    caseStudyCount: 7,
+  },
+]
