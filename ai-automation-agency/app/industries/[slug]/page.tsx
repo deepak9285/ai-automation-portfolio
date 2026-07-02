@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { industries } from '@/config/industries'
@@ -10,12 +11,13 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 interface IndustryPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export default function IndustryPage({ params }: IndustryPageProps) {
+export default function IndustryPage({ params: paramsPromise }: IndustryPageProps) {
+  const params = React.use(paramsPromise)
   const industry = industries.find((ind) => ind.slug === params.slug)
 
   if (!industry) {

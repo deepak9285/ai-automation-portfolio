@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { services } from '@/config/services'
@@ -10,12 +11,13 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
+export default function ServicePage({ params: paramsPromise }: ServicePageProps) {
+  const params = React.use(paramsPromise)
   const service = services.find((s) => s.slug === params.slug)
 
   if (!service) {

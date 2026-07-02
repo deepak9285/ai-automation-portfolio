@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { caseStudies } from '@/config/case-studies'
@@ -10,9 +11,9 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 interface CaseStudyPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -23,7 +24,8 @@ const iconMap: Record<string, React.ReactNode> = {
   Shield: <Zap className="w-8 h-8" />,
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
+export default function CaseStudyPage({ params: paramsPromise }: CaseStudyPageProps) {
+  const params = React.use(paramsPromise)
   const caseStudy = caseStudies.find((cs) => cs.slug === params.slug)
 
   if (!caseStudy) {

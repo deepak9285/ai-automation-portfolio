@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { blogPosts } from '@/config/blog'
@@ -10,12 +11,13 @@ import Link from 'next/link'
 import { formatDate } from '@/lib/utils-custom'
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default function BlogPostPage({ params: paramsPromise }: BlogPostPageProps) {
+  const params = React.use(paramsPromise)
   const post = blogPosts.find((p) => p.slug === params.slug)
 
   if (!post) {
