@@ -4,16 +4,15 @@ export const siteConfig: SiteConfig = {
   siteName: 'AI Automation Agency',
   siteDescription:
     'Transform your business with intelligent AI automation solutions. We help enterprises streamline operations, reduce costs, and accelerate growth.',
-  siteUrl: 'https://ai-automation.agency',
+  siteUrl: 'https://ai-automation-portfolio-jade-seven.vercel.app/',
   logo: '/logo.svg',
   favicon: '/favicon.ico',
-  contactEmail: 'hello@aiautomation.agency',
-  phone: '+1 (555) 123-4567',
-  address: 'San Francisco, CA',
+  contactEmail: 'deepakshahcoding@gmail.com',
+  phone: '+91 9285167871',
+  address: 'Chandan Nagar, Pune, Maharashtra, India',
   socialLinks: {
-    twitter: 'https://twitter.com/aiautomation',
-    linkedin: 'https://linkedin.com/company/ai-automation-agency',
-    facebook: 'https://facebook.com/aiautomation',
-    instagram: 'https://instagram.com/aiautomation',
+    twitter: 'https://x.com/ai_by_deepak',
+    linkedin: 'https://linkedin.com/in/deepak-kumar-shah-2669ab188',
+    instagram: 'https://instagram.com/deepak_ai.automates',
   },
 }
