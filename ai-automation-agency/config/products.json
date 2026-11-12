@@ -1,0 +1,110 @@
+[
+  {
+    "id": "whatsapp-ai-sales-support-agent",
+    "name": "WhatsApp AI Sales & Support Agent",
+    "slug": "whatsapp-ai-sales-support-agent",
+    "description": "24/7 conversational sales concierge that answers questions, shares catalogs, and collects qualified leads on WhatsApp.",
+    "price": 4499,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "WhatsApp & Messaging",
+    "category": "Sales & Support",
+    "accent": "#2bb673",
+    "highlights": [
+      "Instant 2-second reply",
+      "Images, PDFs, and links",
+      "Sales and support automation"
+    ]
+  },
+  {
+    "id": "inbound-ai-voice-agent",
+    "name": "Inbound AI Voice Agent",
+    "slug": "inbound-ai-voice-agent",
+    "description": "24/7 autonomous telephony receptionist that answers inquiries, checks calendar availability, and transfers urgent calls.",
+    "price": 6499,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "Voice & Telephony",
+    "category": "Inbound Calls",
+    "accent": "#2f8dff",
+    "highlights": [
+      "Handles 20+ concurrent calls",
+      "Smart transfer to staff phone",
+      "Real-time lead routing"
+    ]
+  },
+  {
+    "id": "ai-quotation-follow-up-system",
+    "name": "AI Quotation Follow-Up System",
+    "slug": "ai-quotation-follow-up-system",
+    "description": "Multi-stage automated quote follow-up with AI objectification (price, timing, trust) and repeat alerts.",
+    "price": 2999,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "Quote Automation",
+    "category": "Sales Automation",
+    "accent": "#8b5cf6",
+    "highlights": [
+      "Auto follow-up sequences",
+      "Pricing and objection handling",
+      "Smart quote reminders"
+    ]
+  },
+  {
+    "id": "speed-to-lead-agent",
+    "name": "Speed to Lead Agent",
+    "slug": "speed-to-lead-agent",
+    "description": "Sub-minute ad lead intake, autonomous lead qualification & calendar booking and sales team alert.",
+    "price": 6199,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "Sales & Lead Gen",
+    "category": "Lead Capture",
+    "accent": "#ff5c5c",
+    "highlights": [
+      "Under 60 seconds from ad click",
+      "Lead qualification and routing",
+      "Calendar booking"
+    ]
+  },
+  {
+    "id": "google-review-agent",
+    "name": "Google Review Agent",
+    "slug": "google-review-agent",
+    "description": "Post-service review requests, polite reminder cadence, sentiment tracking, and AI response drafting.",
+    "price": 2799,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "Reputation & Reviews",
+    "category": "Review Management",
+    "accent": "#f4c542",
+    "highlights": [
+      "Automatically request review",
+      "Reminder and sentiment tracking",
+      "Review response drafting"
+    ]
+  },
+  {
+    "id": "reputation-review-agent",
+    "name": "Reputation & Review Agent",
+    "slug": "reputation-review-agent",
+    "description": "Review request automation, sentiment tracking, follow-up reminders, and AI review responses for your brand.",
+    "price": 3299,
+    "currency": "INR",
+    "billingPeriod": "month",
+    "image": "",
+    "tag": "Reputation & Review",
+    "category": "Customer Trust",
+    "accent": "#ff8a00",
+    "highlights": [
+      "Review request flows",
+      "Review response support",
+      "Customer reputation growth"
+    ]
+  }
+]
