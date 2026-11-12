@@ -81,6 +81,21 @@ export interface PricingPlan {
   popular?: boolean
 }
 
+export interface Product {
+  id: string
+  name: string
+  slug: string
+  description: string
+  price: number
+  currency: string
+  billingPeriod: string
+  image: string
+  highlights: string[]
+  tag?: string
+  category?: string
+  accent?: string
+}
+
 export interface TeamMember {
   id: string
   name: string

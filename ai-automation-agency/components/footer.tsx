@@ -10,8 +10,8 @@ export function Footer() {
   const footerLinks = {
     Product: [
       { label: 'Services', href: '/#services' },
-      { label: 'Industries', href: '/#industries' },
-      { label: 'Pricing', href: '/#pricing' },
+      // { label: 'Industries', href: '/#industries' },
+      // { label: 'Pricing', href: '/#pricing' },
       { label: 'FAQ', href: '/#faq' },
     ],
     Company: [

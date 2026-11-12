@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { faqs } from '@/config/faq'
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export function FAQSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
@@ -103,12 +104,12 @@ export function FAQSection() {
           <p className="text-muted-foreground mb-6">
             Our team is here to help. Get in touch with us for a free consultation.
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all"
           >
             Contact Us
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

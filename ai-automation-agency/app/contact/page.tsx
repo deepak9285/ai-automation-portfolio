@@ -4,7 +4,6 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
-import Link from 'next/link'
 import { useState } from 'react'
 import { siteConfig } from '@/config/site'
 
@@ -14,8 +13,11 @@ export default function ContactPage() {
     email: '',
     company: '',
     message: '',
+    website: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -27,12 +29,29 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Add form submission logic
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: '', email: '', company: '', message: '' })
-    }, 3000)
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const result = await response.json()
+
+      if (!response.ok) {
+        setSubmitError(result.error || 'We could not send your message. Please try again.')
+        return
+      }
+
+      setSubmitted(true)
+      setFormData({ name: '', email: '', company: '', message: '', website: '' })
+    } catch {
+      setSubmitError('We could not send your message. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -143,6 +162,18 @@ export default function ContactPage() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label htmlFor="website">Leave this field empty</label>
+                    <input
+                      id="website"
+                      type="text"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   {/* Name */}
                   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -232,11 +263,17 @@ export default function ContactPage() {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     viewport={{ once: true }}
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center justify-center gap-2"
                   >
-                    Send Message
-                    <Send className="w-4 h-4" />
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {!isSubmitting && <Send className="w-4 h-4" />}
                   </motion.button>
+                  {submitError && (
+                    <p role="alert" className="text-sm text-destructive">
+                      {submitError}
+                    </p>
+                  )}
                 </form>
               )}
             </motion.div>

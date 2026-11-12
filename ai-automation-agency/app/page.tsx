@@ -15,9 +15,9 @@ export default function Home() {
       <div className="pt-16">
         <HeroSection />
         <ServicesSection />
-        <IndustriesSection />
+        {/* <IndustriesSection /> */}
         <TestimonialsSection />
-        <PricingSection />
+        {/* <PricingSection /> */}
         <FAQSection />
         <CTASection />
       </div>

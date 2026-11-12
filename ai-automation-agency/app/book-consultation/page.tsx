@@ -28,15 +28,59 @@ export default function BookConsultationPage() {
     date: '',
     time: '',
     message: '',
+    website: '',
   })
-
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+    if (!formData.time) {
+      setSubmitError('Please select a preferred consultation time.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitted(false)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (!response.ok) {
+        const result: unknown = await response.json().catch(() => null)
+        const error =
+          typeof result === 'object' &&
+          result !== null &&
+          'error' in result &&
+          typeof result.error === 'string'
+            ? result.error
+            : `The request failed (HTTP ${response.status}). Please try again.`
+        setSubmitError(error)
+        return
+      }
+
+      setSubmitted(true)
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        date: '',
+        time: '',
+        message: '',
+        website: '',
+      })
+    } catch {
+      setSubmitError('Unable to connect. Please check your internet connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -84,6 +128,17 @@ export default function BookConsultationPage() {
                 onSubmit={handleSubmit}
                 className="space-y-6 bg-card rounded-2xl border border-border p-8"
               >
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+
                 {/* Name */}
                 <div>
                   <label className="block text-sm font-medium mb-2">Full Name *</label>
@@ -204,6 +259,11 @@ export default function BookConsultationPage() {
                         </button>
                       ))}
                     </div>
+                    {!formData.time && (
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Select a preferred time to continue.
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -224,8 +284,12 @@ export default function BookConsultationPage() {
                 </div>
 
                 {/* Submit Button */}
-                <Button type="submit" className="w-full">
-                  {submitted ? 'Booking Confirmed!' : 'Schedule Consultation'}
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting
+                    ? 'Sending...'
+                    : submitted
+                      ? 'Request Sent!'
+                      : 'Schedule Consultation'}
                 </Button>
 
                 {submitted && (
@@ -236,6 +300,14 @@ export default function BookConsultationPage() {
                   >
                     Thank you! We&apos;ll contact you shortly to confirm your consultation.
                   </motion.div>
+                )}
+                {submitError && (
+                  <div
+                    role="alert"
+                    className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm"
+                  >
+                    {submitError}
+                  </div>
                 )}
               </motion.form>
             </div>
